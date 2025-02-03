@@ -1,7 +1,9 @@
 import React from "react";
+import PokemonCard from "../components/PokemonCard";
+import PokemonList from "../components/PokemonList";
 
 const Dex = () => {
-  return <div>Dex</div>;
+  return <PokemonList></PokemonList>;
 };
 
 export default Dex;
