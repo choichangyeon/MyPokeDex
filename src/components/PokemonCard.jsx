@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-const PokemonCard = ({ pokemon, select = null, type = "PokemonList" }) => {
-  const addLineup = () => {
-    select(pokemon);
+const PokemonCard = ({ pokemon, action = null, type = "PokemonList" }) => {
+  const clickAction = () => {
+    action(pokemon);
   };
 
   return (
@@ -14,13 +14,18 @@ const PokemonCard = ({ pokemon, select = null, type = "PokemonList" }) => {
         <br />
         {pokemon.korean_name}
       </Info>
-      {select && (
-        <AddBtn onClick={addLineup} value={pokemon}>
-          추가하기
+      {action && (
+        <AddBtn onClick={clickAction} value={pokemon}>
+          {btnName[action.name]}
         </AddBtn>
       )}
     </CardBox>
   );
+};
+
+const btnName = {
+  pokemonSelect: "추가하기",
+  pokemonDelete: "삭제하기",
 };
 
 const CardBox = styled.div`

@@ -3,12 +3,17 @@ import styled from "styled-components";
 import pokemon_ball from "/src/assets/PokemonBall.png";
 import PokemonCard from "./PokemonCard";
 
-const Dashboard = ({ Lineup }) => {
+const Dashboard = ({ pokemonDelete, Lineup }) => {
   return (
     <BorderBox>
       {Array.from({ length: 6 }, (_, index) => {
         return Lineup[index] ? (
-          <PokemonCard pokemon={Lineup[index]} type="Dashboard" key={index} />
+          <PokemonCard
+            pokemon={Lineup[index]}
+            action={pokemonDelete}
+            type="Dashboard"
+            key={index}
+          />
         ) : (
           <EmptyPokemon key={index}>
             <PokemonBall src={pokemon_ball} />
