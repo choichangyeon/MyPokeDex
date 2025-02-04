@@ -1,21 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import PokemonList from "../components/PokemonList";
 import Dashboard from "../components/Dashboard";
 
 const Dex = () => {
-  const pokemonSelect = (pokemon) => {
+  const addPokemon = (pokemon) => {
     if (Lineup.length === 6) {
       alert("라인업이 이미 완성되어있습니다!");
-      console.log(Lineup);
       return;
     }
-    console.log(pokemon);
+    if (Lineup.find((poke) => poke.id === pokemon.id)) {
+      alert("라인업에 존재하는 포켓몬입니다.");
+      return;
+    }
     setLineup(() => {
       return [...Lineup, pokemon];
     });
   };
 
-  const pokemonDelete = (pokemon) => {
+  const removePokemon = (pokemon) => {
     setLineup(() =>
       Lineup.filter((poke) => {
         if (poke.id !== pokemon.id) {
@@ -26,10 +28,11 @@ const Dex = () => {
   };
 
   const [Lineup, setLineup] = useState([]);
+
   return (
     <>
-      <Dashboard pokemonDelete={pokemonDelete} Lineup={Lineup}></Dashboard>
-      <PokemonList pokemonSelect={pokemonSelect}></PokemonList>;
+      <Dashboard pokemonDelete={removePokemon} Lineup={Lineup}></Dashboard>
+      <PokemonList pokemonSelect={addPokemon}></PokemonList>;
     </>
   );
 };
