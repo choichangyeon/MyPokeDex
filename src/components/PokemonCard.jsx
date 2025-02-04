@@ -24,8 +24,8 @@ const PokemonCard = ({ pokemon, action = null, type = "PokemonList" }) => {
 };
 
 const BtnName = {
-  pokemonSelect: "추가하기",
-  pokemonDelete: "삭제하기",
+  addPokemon: "추가하기",
+  removePokemon: "삭제하기",
 };
 
 const CardBox = styled.div`
