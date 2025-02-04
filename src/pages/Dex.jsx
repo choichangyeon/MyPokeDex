@@ -13,6 +13,7 @@ const Dex = () => {
       return;
     }
     setLineup(() => {
+      alert(`${pokemon.korean_name}을 라인업에 추가했습니다!`);
       return [...Lineup, pokemon];
     });
   };
