@@ -1,28 +1,20 @@
 import React from "react";
 import styled from "styled-components";
 import pokemon_ball from "/src/assets/PokemonBall.png";
+import PokemonCard from "./PokemonCard";
 
 const Dashboard = ({ Lineup }) => {
   return (
     <BorderBox>
-      <EmptyPokemon>
-        <PokemonBall src={pokemon_ball}></PokemonBall>
-      </EmptyPokemon>
-      <EmptyPokemon>
-        <PokemonBall src={pokemon_ball}></PokemonBall>
-      </EmptyPokemon>
-      <EmptyPokemon>
-        <PokemonBall src={pokemon_ball}></PokemonBall>
-      </EmptyPokemon>
-      <EmptyPokemon>
-        <PokemonBall src={pokemon_ball}></PokemonBall>
-      </EmptyPokemon>
-      <EmptyPokemon>
-        <PokemonBall src={pokemon_ball}></PokemonBall>
-      </EmptyPokemon>
-      <EmptyPokemon>
-        <PokemonBall src={pokemon_ball}></PokemonBall>
-      </EmptyPokemon>
+      {Array.from({ length: 6 }, (_, index) => {
+        return Lineup[index] ? (
+          <PokemonCard pokemon={Lineup[index]} key={index} />
+        ) : (
+          <EmptyPokemon key={index}>
+            <PokemonBall src={pokemon_ball} />
+          </EmptyPokemon>
+        );
+      })}
     </BorderBox>
   );
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const PokemonCard = ({ pokemon, select }) => {
+const PokemonCard = ({ pokemon, select = null }) => {
   const addLineup = () => {
     select(pokemon);
   };
@@ -14,9 +14,11 @@ const PokemonCard = ({ pokemon, select }) => {
         <br />
         {pokemon.korean_name}
       </Info>
-      <AddBtn onClick={addLineup} value={pokemon}>
-        추가하기
-      </AddBtn>
+      {select && (
+        <AddBtn onClick={addLineup} value={pokemon}>
+          추가하기
+        </AddBtn>
+      )}
     </CardBox>
   );
 };
