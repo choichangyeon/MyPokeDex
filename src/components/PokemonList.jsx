@@ -3,7 +3,7 @@ import PokemonCard from "./PokemonCard";
 import MOCK_DATA from "../constants/MOCK_DATA";
 import styled from "styled-components";
 
-const PokemonList = ({ select }) => {
+const PokemonList = ({ pokemonSelect }) => {
   const pokemonList = MOCK_DATA;
 
   return (
@@ -12,7 +12,7 @@ const PokemonList = ({ select }) => {
         return (
           <PokemonCard
             pokemon={pokemon}
-            select={select}
+            action={pokemonSelect}
             key={pokemon.id}
           ></PokemonCard>
         );
