@@ -4,7 +4,7 @@ import styled from "styled-components";
 const PokemonCard = ({ pokemon }) => {
   const CardBox = styled.div`
     width: 160px;
-    height: 250px;
+    height: 220px;
     border: 1px solid black;
     border-radius: 10px;
   `;

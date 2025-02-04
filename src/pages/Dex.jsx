@@ -1,9 +1,14 @@
 import React from "react";
-import PokemonCard from "../components/PokemonCard";
 import PokemonList from "../components/PokemonList";
+import Dashboard from "../components/Dashboard";
 
 const Dex = () => {
-  return <PokemonList></PokemonList>;
+  return (
+    <>
+      <Dashboard></Dashboard>
+      <PokemonList></PokemonList>;
+    </>
+  );
 };
 
 export default Dex;
