@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
-const PokemonCard = ({ pokemon, select = null }) => {
+const PokemonCard = ({ pokemon, select = null, type = "PokemonList" }) => {
   const addLineup = () => {
     select(pokemon);
   };
 
   return (
-    <CardBox>
+    <CardBox type={type}>
       <Img src={pokemon.img_url} alt="Pokemon" />
       <Info>
         NO.{pokemon.id.toString().padStart(3, "0")}
@@ -28,8 +28,26 @@ const CardBox = styled.div`
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  width: 160px;
-  height: 220px;
+  width: ${(props) => {
+    switch (props.type) {
+      case "PokemonList":
+        return "160px";
+      case "Dashboard":
+        return "140px";
+      default:
+        return "100px";
+    }
+  }};
+  height: ${(props) => {
+    switch (props.type) {
+      case "PokemonList":
+        return "220px";
+      case "Dashboard":
+        return "180px";
+      default:
+        return "100px";
+    }
+  }};
   border: 1px solid black;
   border-radius: 10px;
   margin: 10px 0 10px 0;

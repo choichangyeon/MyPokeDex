@@ -8,7 +8,7 @@ const Dashboard = ({ Lineup }) => {
     <BorderBox>
       {Array.from({ length: 6 }, (_, index) => {
         return Lineup[index] ? (
-          <PokemonCard pokemon={Lineup[index]} key={index} />
+          <PokemonCard pokemon={Lineup[index]} type="Dashboard" key={index} />
         ) : (
           <EmptyPokemon key={index}>
             <PokemonBall src={pokemon_ball} />
