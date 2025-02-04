@@ -1,13 +1,22 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const PokemonCard = ({ pokemon, action = null, type = "PokemonList" }) => {
-  const clickAction = () => {
+  const navigate = useNavigate();
+  const test = (e) => {
+    const id = e.currentTarget.getAttribute("data-pokemon-id");
+    navigate(`/details/${id}`);
+  };
+
+  const clickAction = (e) => {
+    // const target = e.currentTarget.getAttribute("data-pokemon");
+    // console.log(target);
     action(pokemon);
   };
 
   return (
-    <CardBox type={type}>
+    <CardBox onClick={test} data-pokemon-id={pokemon.id} type={type}>
       <Img src={pokemon.img_url} alt="Pokemon" />
       <Info>
         NO.{pokemon.id.toString().padStart(3, "0")}
@@ -15,7 +24,7 @@ const PokemonCard = ({ pokemon, action = null, type = "PokemonList" }) => {
         {pokemon.korean_name}
       </Info>
       {action && (
-        <AddBtn onClick={clickAction} value={pokemon}>
+        <AddBtn onClick={clickAction} data-pokemon={pokemon}>
           {BtnName[action.name]}
         </AddBtn>
       )}
