@@ -16,14 +16,14 @@ const PokemonCard = ({ pokemon, action = null, type = "PokemonList" }) => {
       </Info>
       {action && (
         <AddBtn onClick={clickAction} value={pokemon}>
-          {btnName[action.name]}
+          {BtnName[action.name]}
         </AddBtn>
       )}
     </CardBox>
   );
 };
 
-const btnName = {
+const BtnName = {
   pokemonSelect: "추가하기",
   pokemonDelete: "삭제하기",
 };

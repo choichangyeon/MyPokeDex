@@ -15,7 +15,15 @@ const Dex = () => {
     });
   };
 
-  const pokemonDelete = (id) => {};
+  const pokemonDelete = (pokemon) => {
+    setLineup(() =>
+      Lineup.filter((poke) => {
+        if (poke.id !== pokemon.id) {
+          return poke;
+        }
+      })
+    );
+  };
 
   const [Lineup, setLineup] = useState([]);
   return (
