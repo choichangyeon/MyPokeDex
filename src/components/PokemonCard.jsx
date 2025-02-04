@@ -11,7 +11,7 @@ const PokemonCard = ({ pokemon, action = null, type = "PokemonList" }) => {
 
   const clickAction = (e) => {
     // const target = e.currentTarget.getAttribute("data-pokemon");
-    // console.log(target);
+    e.stopPropagation();
     action(pokemon);
   };
 
