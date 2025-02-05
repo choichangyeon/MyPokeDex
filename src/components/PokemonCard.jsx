@@ -34,10 +34,19 @@ const BtnName = {
 };
 
 const CardBox = styled.div`
+  cursor: pointer;
   display: flex;
   flex-flow: column;
   justify-content: center;
   align-items: center;
+
+  box-shadow: 10px 10px 10px 1px rgba(0, 0, 0, 0.5);
+
+  &:hover {
+    transform: translateY(-20px);
+    transition: 0.5s;
+  }
+
   width: ${(props) => {
     switch (props.type) {
       case "PokemonList":
@@ -60,7 +69,7 @@ const CardBox = styled.div`
   }};
   border: 1px solid black;
   border-radius: 10px;
-  margin: 10px 0 10px 0;
+  margin: 20px 10px 20px 10px;
 `;
 const Img = styled.img`
   object-position: center;
