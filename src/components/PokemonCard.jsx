@@ -1,4 +1,3 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
@@ -72,7 +71,19 @@ const Info = styled.div`
   text-align: center;
 `;
 const ActionBtn = styled.button`
-  background-color: green;
+  width: 80px;
+  height: 30px;
+
+  border: none;
+  border-radius: 10px;
+  margin: 5px 0 0 0;
+  background-color: #ee3f35;
+
+  &:hover {
+    background-color: #3db128;
+    color: white;
+    transition: 0.3s;
+  }
 `;
 
 export default PokemonCard;
