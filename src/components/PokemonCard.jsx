@@ -40,10 +40,28 @@ const CardBox = styled.div`
   justify-content: center;
   align-items: center;
 
-  box-shadow: 10px 10px 10px 1px rgba(0, 0, 0, 0.5);
+  box-shadow: ${(props) => {
+    switch (props.type) {
+      case "PokemonList":
+        return "10px 10px 10px 1px rgba(0, 0, 0, 0.5)";
+      case "Dashboard":
+        return "none";
+      default:
+        return "none";
+    }
+  }};
 
   &:hover {
-    transform: translateY(-20px);
+    transform: ${(props) => {
+      switch (props.type) {
+        case "PokemonList":
+          return "translateY(-20px)";
+        case "Dashboard":
+          return "none";
+        default:
+          return "none";
+      }
+    }};
     transition: 0.5s;
   }
 
