@@ -4,19 +4,18 @@ import styled from "styled-components";
 
 const PokemonCard = ({ pokemon, action = null, type = "PokemonList" }) => {
   const navigate = useNavigate();
-  const test = (e) => {
+  const gotoDetails = (e) => {
     const id = e.currentTarget.getAttribute("data-pokemon-id");
     navigate(`/details/${id}`);
   };
 
   const clickAction = (e) => {
-    // const target = e.currentTarget.getAttribute("data-pokemon");
     e.stopPropagation();
     action(pokemon);
   };
 
   return (
-    <CardBox onClick={test} data-pokemon-id={pokemon.id} type={type}>
+    <CardBox onClick={gotoDetails} data-pokemon-id={pokemon.id} type={type}>
       <Img src={pokemon.img_url} alt="Pokemon" />
       <Info>
         NO.{pokemon.id.toString().padStart(3, "0")}
@@ -24,9 +23,7 @@ const PokemonCard = ({ pokemon, action = null, type = "PokemonList" }) => {
         {pokemon.korean_name}
       </Info>
       {action && (
-        <AddBtn onClick={clickAction} data-pokemon={pokemon}>
-          {BtnName[action.name]}
-        </AddBtn>
+        <ActionBtn onClick={clickAction}>{BtnName[action.name]}</ActionBtn>
       )}
     </CardBox>
   );
@@ -74,7 +71,7 @@ const Info = styled.div`
   width: 100px;
   text-align: center;
 `;
-const AddBtn = styled.button`
+const ActionBtn = styled.button`
   background-color: green;
 `;
 
