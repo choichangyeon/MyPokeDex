@@ -1,8 +1,12 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import PokemonContext from "../PokemonContextProvider";
 
-const PokemonCard = ({ pokemon, action = null, type = "PokemonList" }) => {
+const PokemonCard = ({ pokemon, action = null, type = null }) => {
   const navigate = useNavigate();
+  const { addPokemon, removePokemon } = useContext(PokemonContext);
+
   const gotoDetails = (e) => {
     const id = e.currentTarget.getAttribute("data-pokemon-id");
     navigate(`/details/${id}`);
@@ -10,7 +14,17 @@ const PokemonCard = ({ pokemon, action = null, type = "PokemonList" }) => {
 
   const clickAction = (e) => {
     e.stopPropagation();
-    action(pokemon);
+    switch (action) {
+      case "ADD":
+        addPokemon(pokemon);
+        return;
+      case "REMOVE":
+        removePokemon(pokemon);
+        return;
+      default:
+        return;
+    }
+    // action(pokemon);
   };
 
   return (
@@ -21,9 +35,7 @@ const PokemonCard = ({ pokemon, action = null, type = "PokemonList" }) => {
         <br />
         {pokemon.korean_name}
       </Info>
-      {action && (
-        <ActionBtn onClick={clickAction}>{BtnName[action.name]}</ActionBtn>
-      )}
+      {<ActionBtn onClick={clickAction}>{BtnName[action.name]}</ActionBtn>}
     </CardBox>
   );
 };

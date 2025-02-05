@@ -1,8 +1,11 @@
 import styled from "styled-components";
 import pokemon_ball from "/src/assets/PokemonBall.png";
 import PokemonCard from "./PokemonCard";
+import { useContext } from "react";
+import PokemonContext from "../PokemonContextProvider";
 
-const Dashboard = ({ pokemonDelete, Lineup }) => {
+const Dashboard = () => {
+  const { Lineup } = useContext(PokemonContext);
   return (
     <DashboardLayout>
       <LineupTitle>나만의 포켓몬 파티</LineupTitle>
@@ -11,7 +14,7 @@ const Dashboard = ({ pokemonDelete, Lineup }) => {
           return Lineup[index] ? (
             <PokemonCard
               pokemon={Lineup[index]}
-              action={pokemonDelete}
+              action="REMOVE"
               type="Dashboard"
               key={index}
             />
