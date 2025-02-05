@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { PokemonContext } from "../PokemonContextProvider";
 
-const PokemonCard = ({ pokemon, action = null, type = null }) => {
+const PokemonCard = ({ pokemon = null, action = null, type = null }) => {
   const navigate = useNavigate();
   const { addPokemon, removePokemon } = useContext(PokemonContext);
 
@@ -27,15 +27,17 @@ const PokemonCard = ({ pokemon, action = null, type = null }) => {
   };
 
   return (
-    <CardBox onClick={gotoDetails} data-pokemon-id={pokemon.id} type={type}>
-      <Img src={pokemon.img_url} alt="Pokemon" />
-      <Info>
-        NO.{pokemon.id.toString().padStart(3, "0")}
-        <br />
-        {pokemon.korean_name}
-      </Info>
-      {<ActionBtn onClick={clickAction}>{BtnName[action.name]}</ActionBtn>}
-    </CardBox>
+    pokemon && (
+      <CardBox onClick={gotoDetails} data-pokemon-id={pokemon.id} type={type}>
+        <Img src={pokemon.img_url} alt="Pokemon" />
+        <Info>
+          NO.{pokemon.id.toString().padStart(3, "0")}
+          <br />
+          {pokemon.korean_name}
+        </Info>
+        {<ActionBtn onClick={clickAction}>{BtnName[action.name]}</ActionBtn>}
+      </CardBox>
+    )
   );
 };
 
