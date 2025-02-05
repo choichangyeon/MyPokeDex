@@ -42,8 +42,9 @@ const LineupTitle = styled.div`
 const BorderBox = styled.div`
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
+  gap: 20px;
   width: 100%;
 
   margin-bottom: 20px;

@@ -87,7 +87,16 @@ const CardBox = styled.div`
   }};
   border: 1px solid black;
   border-radius: 10px;
-  margin: 20px 10px 20px 10px;
+  margin: ${(props) => {
+    switch (props.type) {
+      case "PokemonList":
+        return "20px 10px 20px 10px";
+      case "Dashboard":
+        return "none";
+      default:
+        return "none";
+    }
+  }};
 `;
 const Img = styled.img`
   object-position: center;
