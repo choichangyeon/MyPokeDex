@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import pokemon_ball from "/src/assets/PokemonBall.png";
 import PokemonCard from "./PokemonCard";
