@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import PokemonContext from "../PokemonContextProvider";
+import { PokemonContext } from "../PokemonContextProvider";
 
 const PokemonCard = ({ pokemon, action = null, type = null }) => {
   const navigate = useNavigate();
@@ -24,7 +24,6 @@ const PokemonCard = ({ pokemon, action = null, type = null }) => {
       default:
         return;
     }
-    // action(pokemon);
   };
 
   return (

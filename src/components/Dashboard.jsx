@@ -2,7 +2,7 @@ import styled from "styled-components";
 import pokemon_ball from "/src/assets/PokemonBall.png";
 import PokemonCard from "./PokemonCard";
 import { useContext } from "react";
-import PokemonContext from "../PokemonContextProvider";
+import { PokemonContext } from "../PokemonContextProvider";
 
 const Dashboard = () => {
   const { Lineup } = useContext(PokemonContext);

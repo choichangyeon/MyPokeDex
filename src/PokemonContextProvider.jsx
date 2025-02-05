@@ -37,4 +37,5 @@ const PokemonContextProvider = ({ children }) => {
   );
 };
 
+export { PokemonContext };
 export default PokemonContextProvider;
