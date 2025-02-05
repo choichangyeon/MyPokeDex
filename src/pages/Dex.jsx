@@ -1,6 +1,7 @@
 import { useState } from "react";
 import PokemonList from "../components/PokemonList";
 import Dashboard from "../components/Dashboard";
+import styled from "styled-components";
 
 const Dex = () => {
   const addPokemon = (pokemon) => {
@@ -31,11 +32,16 @@ const Dex = () => {
   const [Lineup, setLineup] = useState([]);
 
   return (
-    <>
+    <DexLayout>
       <Dashboard pokemonDelete={removePokemon} Lineup={Lineup}></Dashboard>
       <PokemonList pokemonSelect={addPokemon}></PokemonList>;
-    </>
+    </DexLayout>
   );
 };
 
+const DexLayout = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`;
 export default Dex;

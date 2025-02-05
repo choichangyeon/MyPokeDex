@@ -30,11 +30,13 @@ const DashboardLayout = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 50px 0 30px 0;
 `;
 
 const LineupTitle = styled.div`
   font-size: 30px;
   font-weight: 800;
+  margin: 0 0 30px 0;
 `;
 
 const BorderBox = styled.div`
@@ -43,7 +45,6 @@ const BorderBox = styled.div`
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
-  height: 200px;
 
   margin-bottom: 20px;
 `;
