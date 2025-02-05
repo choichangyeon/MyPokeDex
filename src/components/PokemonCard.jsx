@@ -1,4 +1,3 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
@@ -35,10 +34,37 @@ const BtnName = {
 };
 
 const CardBox = styled.div`
+  cursor: pointer;
   display: flex;
   flex-flow: column;
   justify-content: center;
   align-items: center;
+
+  box-shadow: ${(props) => {
+    switch (props.type) {
+      case "PokemonList":
+        return "10px 10px 10px 1px rgba(0, 0, 0, 0.5)";
+      case "Dashboard":
+        return "none";
+      default:
+        return "none";
+    }
+  }};
+
+  &:hover {
+    transform: ${(props) => {
+      switch (props.type) {
+        case "PokemonList":
+          return "translateY(-20px)";
+        case "Dashboard":
+          return "none";
+        default:
+          return "none";
+      }
+    }};
+    transition: 0.5s;
+  }
+
   width: ${(props) => {
     switch (props.type) {
       case "PokemonList":
@@ -61,7 +87,16 @@ const CardBox = styled.div`
   }};
   border: 1px solid black;
   border-radius: 10px;
-  margin: 10px 0 10px 0;
+  margin: ${(props) => {
+    switch (props.type) {
+      case "PokemonList":
+        return "20px 10px 20px 10px";
+      case "Dashboard":
+        return "none";
+      default:
+        return "none";
+    }
+  }};
 `;
 const Img = styled.img`
   object-position: center;
@@ -72,7 +107,19 @@ const Info = styled.div`
   text-align: center;
 `;
 const ActionBtn = styled.button`
-  background-color: green;
+  width: 80px;
+  height: 30px;
+
+  border: none;
+  border-radius: 10px;
+  margin: 5px 0 0 0;
+  background-color: #ee3f35;
+
+  &:hover {
+    background-color: #3db128;
+    color: white;
+    transition: 0.3s;
+  }
 `;
 
 export default PokemonCard;
