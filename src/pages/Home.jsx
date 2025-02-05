@@ -3,6 +3,7 @@ import pokemon_logo from "/src/assets/Pokemon.png";
 import styled, { keyframes } from "styled-components";
 
 const Home = () => {
+  // props Drilling을 통한 구현
   const navigate = useNavigate();
 
   return (
