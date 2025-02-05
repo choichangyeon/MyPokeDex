@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import PokemonList from "../components/PokemonList";
 import Dashboard from "../components/Dashboard";
 
