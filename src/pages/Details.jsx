@@ -15,7 +15,6 @@ const Details = () => {
 
   return (
     <DetailsLayout>
-      <div>Details</div>
       <Img src={pokemon.img_url} alt="Pokemon" />
       <Info>
         NO.{pokemon.id.toString().padStart(3, "0")}
@@ -38,14 +37,23 @@ const DetailsLayout = styled.div`
   flex-flow: column;
   justify-content: center;
   align-items: center;
+
+  margin: 100px 0 0 0;
+  /* background-color: green; */
 `;
 const Img = styled.img`
+  width: 200px;
   object-position: center;
   object-fit: cover;
 `;
 const Info = styled.div`
-  width: 100px;
+  width: 500px;
+
   text-align: center;
+  margin: 0 0 20px 0;
+
+  line-height: 180%;
+  /* background-color: green; */
 `;
 
 export default Details;
