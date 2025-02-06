@@ -23,11 +23,11 @@ const PokemonCard = ({ pokemon = null, action = null, type = null }) => {
     switch (action) {
       case "ADD":
         // addPokemon(pokemon);
-        dispatch(addPokemon({ payload: pokemon }));
+        dispatch(addPokemon(pokemon));
         return;
       case "REMOVE":
         // removePokemon(pokemon);
-        dispatch(removePokemon({ payload: pokemon }));
+        dispatch(removePokemon(pokemon));
         return;
       default:
         return;

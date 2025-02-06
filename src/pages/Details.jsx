@@ -15,7 +15,7 @@ const Details = () => {
   console.log(LineupState);
 
   const pokemon = setPokemon(param.id);
-  let action = LineupState.Lineup.some((poke) => poke.id === pokemon.id)
+  let action = LineupState.Lineup?.some((poke) => poke.id === pokemon.id)
     ? "REMOVE"
     : "ADD";
 
@@ -24,11 +24,11 @@ const Details = () => {
     switch (action) {
       case "ADD":
         // addPokemon(pokemon);
-        dispatch(addPokemon({ payload: pokemon }));
+        dispatch(addPokemon(pokemon));
         return;
       case "REMOVE":
         // removePokemon(pokemon);
-        dispatch(removePokemon({ payload: pokemon }));
+        dispatch(removePokemon(pokemon));
         return;
       default:
         return;
