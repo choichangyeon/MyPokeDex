@@ -1,9 +1,14 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 const PokemonContext = createContext();
 
 const PokemonContextProvider = ({ children }) => {
   const [Lineup, setLineup] = useState([]);
+  const [position, setPosition] = useState(0);
+
+  const saveScroll = () => {
+    setPosition(window.scrollY);
+  };
 
   const addPokemon = (pokemon) => {
     if (Lineup.length === 6) {
@@ -31,7 +36,9 @@ const PokemonContextProvider = ({ children }) => {
   };
 
   return (
-    <PokemonContext.Provider value={{ addPokemon, removePokemon, Lineup }}>
+    <PokemonContext.Provider
+      value={{ addPokemon, removePokemon, Lineup, saveScroll, position }}
+    >
       {children}
     </PokemonContext.Provider>
   );

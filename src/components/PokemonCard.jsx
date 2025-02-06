@@ -5,10 +5,11 @@ import { PokemonContext } from "../PokemonContextProvider";
 
 const PokemonCard = ({ pokemon = null, action = null, type = null }) => {
   const navigate = useNavigate();
-  const { addPokemon, removePokemon } = useContext(PokemonContext);
+  const { addPokemon, removePokemon, saveScroll } = useContext(PokemonContext);
 
   const gotoDetails = (e) => {
     const id = e.currentTarget.getAttribute("data-pokemon-id");
+    saveScroll();
     navigate(`/details/${id}`);
   };
 
