@@ -2,14 +2,19 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { PokemonContext } from "../PokemonContextProvider";
+import { useDispatch, useSelector } from "react-redux";
+import { setPosition } from "../redux/slices/positionSlice";
 
 const PokemonCard = ({ pokemon = null, action = null, type = null }) => {
   const navigate = useNavigate();
-  const { addPokemon, removePokemon, saveScroll } = useContext(PokemonContext);
+  const { addPokemon, removePokemon } = useContext(PokemonContext);
+  const dispatch = useDispatch();
 
   const gotoDetails = (e) => {
     const id = e.currentTarget.getAttribute("data-pokemon-id");
-    saveScroll();
+    const position = window.scrollY;
+    console.log(position);
+    dispatch(setPosition({ position }));
     navigate(`/details/${id}`);
   };
 

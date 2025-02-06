@@ -3,13 +3,16 @@ import Dashboard from "../components/Dashboard";
 import styled from "styled-components";
 import { useContext, useEffect } from "react";
 import { PokemonContext } from "../PokemonContextProvider";
+import { useSelector } from "react-redux";
 
 const Dex = () => {
-  const { position } = useContext(PokemonContext);
+  // const { position } = useContext(PokemonContext);
+  const position = useSelector((state) => state.position);
+  console.log(position);
+  window.scrollTo(0, position);
+  // useEffect(() => {
 
-  useEffect(() => {
-    window.scrollTo(0, position);
-  }, [position]);
+  // }, [position]);
 
   return (
     <DexLayout>
