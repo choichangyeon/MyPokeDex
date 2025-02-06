@@ -35,15 +35,15 @@ const PokemonCard = ({ pokemon = null, action = null, type = null }) => {
           <br />
           {pokemon.korean_name}
         </Info>
-        {<ActionBtn onClick={clickAction}>{BtnName[action.name]}</ActionBtn>}
+        {<ActionBtn onClick={clickAction}>{BtnName[action]}</ActionBtn>}
       </CardBox>
     )
   );
 };
 
 const BtnName = {
-  addPokemon: "추가하기",
-  removePokemon: "삭제하기",
+  ADD: "추가하기",
+  REMOVE: "삭제하기",
 };
 
 const CardBox = styled.div`
