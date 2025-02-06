@@ -1,15 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-  position: 0,
-};
+const initialState = 0;
+
 const PositionSlice = createSlice({
   name: "position",
   initialState,
   reducers: {
-    setPosition: (state, action) => {
-      state.position = action.payload;
-    },
+    setPosition: (state, action) => action.payload,
   },
 });
 

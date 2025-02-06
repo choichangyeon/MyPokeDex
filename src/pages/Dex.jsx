@@ -7,12 +7,11 @@ import { useSelector } from "react-redux";
 
 const Dex = () => {
   // const { position } = useContext(PokemonContext);
-  const position = useSelector((state) => state.position);
-  console.log(position);
-  window.scrollTo(0, position);
-  // useEffect(() => {
+  const scrollState = useSelector((state) => state.position);
 
-  // }, [position]);
+  useEffect(() => {
+    window.scrollTo(0, scrollState.position);
+  }, [scrollState.position]);
 
   return (
     <DexLayout>
