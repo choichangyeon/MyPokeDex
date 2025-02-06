@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import PokemonContextProvider from "./PokemonContextProvider";
 import Home from "./pages/Home";
 import Dex from "./pages/Dex";
 import Details from "./pages/Details";
