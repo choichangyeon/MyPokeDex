@@ -7,7 +7,7 @@ const Details = () => {
   const param = useParams();
   const pokemon = setPokemon(param.id);
 
-  console.log(pokemon);
+  console.log("Details");
 
   const backDex = () => {
     navigate("/dex");

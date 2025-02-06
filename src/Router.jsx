@@ -7,18 +7,13 @@ import Details from "./pages/Details";
 const Router = () => {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route
-          path="dex"
-          element={
-            <PokemonContextProvider>
-              <Dex />
-            </PokemonContextProvider>
-          }
-        ></Route>
-        <Route path="details/:id" element={<Details />}></Route>
-      </Routes>
+      <PokemonContextProvider>
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="dex" element={<Dex />}></Route>
+          <Route path="details/:id" element={<Details />}></Route>
+        </Routes>
+      </PokemonContextProvider>
     </BrowserRouter>
   );
 };
