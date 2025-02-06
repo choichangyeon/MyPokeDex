@@ -5,11 +5,10 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
 const Dex = () => {
-  const scrollState = useSelector((state) => state.position);
-
+  const position = useSelector((state) => state.position);
   useEffect(() => {
-    window.scrollTo(0, scrollState.position);
-  }, [scrollState.position]);
+    window.scrollTo(0, position);
+  }, [position]);
 
   return (
     <DexLayout>

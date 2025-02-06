@@ -4,11 +4,12 @@ import styled from "styled-components";
 import { useContext, useReducer } from "react";
 import { PokemonContext } from "../PokemonContextProvider";
 import { useDispatch, useSelector } from "react-redux";
+import { addPokemon, removePokemon } from "../redux/slices/LineupSlice";
 
 const Details = () => {
   const navigate = useNavigate();
   const param = useParams();
-  const { Lineup, addPokemon, removePokemon } = useContext(PokemonContext);
+  // const { Lineup, addPokemon, removePokemon } = useContext(PokemonContext);
   const dispatch = useDispatch();
   const LineupState = useSelector((state) => state.Lineup);
 
