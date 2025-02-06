@@ -22,10 +22,12 @@ const PokemonCard = ({ pokemon = null, action = null, type = null }) => {
     e.stopPropagation();
     switch (action) {
       case "ADD":
-        addPokemon(pokemon);
+        // addPokemon(pokemon);
+        dispatch(addPokemon({ payload: pokemon }));
         return;
       case "REMOVE":
-        removePokemon(pokemon);
+        // removePokemon(pokemon);
+        dispatch(removePokemon({ payload: pokemon }));
         return;
       default:
         return;
