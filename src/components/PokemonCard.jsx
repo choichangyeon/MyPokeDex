@@ -1,8 +1,12 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { PokemonContext } from "../PokemonContextProvider";
 
-const PokemonCard = ({ pokemon, action = null, type = "PokemonList" }) => {
+const PokemonCard = ({ pokemon = null, action = null, type = null }) => {
   const navigate = useNavigate();
+  const { addPokemon, removePokemon } = useContext(PokemonContext);
+
   const gotoDetails = (e) => {
     const id = e.currentTarget.getAttribute("data-pokemon-id");
     navigate(`/details/${id}`);
@@ -10,27 +14,36 @@ const PokemonCard = ({ pokemon, action = null, type = "PokemonList" }) => {
 
   const clickAction = (e) => {
     e.stopPropagation();
-    action(pokemon);
+    switch (action) {
+      case "ADD":
+        addPokemon(pokemon);
+        return;
+      case "REMOVE":
+        removePokemon(pokemon);
+        return;
+      default:
+        return;
+    }
   };
 
   return (
-    <CardBox onClick={gotoDetails} data-pokemon-id={pokemon.id} type={type}>
-      <Img src={pokemon.img_url} alt="Pokemon" />
-      <Info>
-        NO.{pokemon.id.toString().padStart(3, "0")}
-        <br />
-        {pokemon.korean_name}
-      </Info>
-      {action && (
-        <ActionBtn onClick={clickAction}>{BtnName[action.name]}</ActionBtn>
-      )}
-    </CardBox>
+    pokemon && (
+      <CardBox onClick={gotoDetails} data-pokemon-id={pokemon.id} type={type}>
+        <Img src={pokemon.img_url} alt="Pokemon" />
+        <Info>
+          NO.{pokemon.id.toString().padStart(3, "0")}
+          <br />
+          {pokemon.korean_name}
+        </Info>
+        {<ActionBtn onClick={clickAction}>{BtnName[action]}</ActionBtn>}
+      </CardBox>
+    )
   );
 };
 
 const BtnName = {
-  addPokemon: "추가하기",
-  removePokemon: "삭제하기",
+  ADD: "추가하기",
+  REMOVE: "삭제하기",
 };
 
 const CardBox = styled.div`

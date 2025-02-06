@@ -1,9 +1,8 @@
-import React from "react";
 import PokemonCard from "./PokemonCard";
 import MOCK_DATA from "../constants/MOCK_DATA";
 import styled from "styled-components";
 
-const PokemonList = ({ pokemonSelect }) => {
+const PokemonList = () => {
   const pokemonList = MOCK_DATA;
 
   return (
@@ -12,8 +11,9 @@ const PokemonList = ({ pokemonSelect }) => {
         return (
           <PokemonCard
             pokemon={pokemon}
-            action={pokemonSelect}
             key={pokemon.id}
+            action="ADD"
+            type="PokemonList"
           ></PokemonCard>
         );
       })}
