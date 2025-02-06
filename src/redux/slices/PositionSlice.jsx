@@ -7,11 +7,11 @@ const PositionSlice = createSlice({
   name: "position",
   initialState,
   reducers: {
-    saveScroll: (state, action) => {
-      setPosition(window.scrollY);
+    setPosition: (state, action) => {
+      state.position = action.payload;
     },
   },
 });
 
-export const { addPokemon, removePokemon } = LineupSlice.actions;
-export default LineupSlice.reducer;
+export const { setPosition } = PositionSlice.actions;
+export default PositionSlice.reducer;
