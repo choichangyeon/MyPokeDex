@@ -17,7 +17,6 @@ const PokemonCard = ({ pokemon = null, action = null, type = null }) => {
 
   const clickAction = (e) => {
     e.stopPropagation();
-    console.log(action);
     switch (action) {
       case "ADD":
         dispatch(addPokemon(pokemon));
@@ -57,24 +56,24 @@ const CardBox = styled.div`
   justify-content: center;
   align-items: center;
 
-  box-shadow: ${(props) => {
-    switch (props.type) {
-      case "PokemonList":
-        return "10px 10px 10px 1px rgba(0, 0, 0, 0.5)";
-      case "Dashboard":
-        return "none";
-      default:
-        return "none";
-    }
-  }};
-
   &:hover {
     transform: ${(props) => {
       switch (props.type) {
         case "PokemonList":
           return "translateY(-20px)";
         case "Dashboard":
+          return "translateY(-10px)";
+        default:
           return "none";
+      }
+    }};
+
+    box-shadow: ${(props) => {
+      switch (props.type) {
+        case "PokemonList":
+          return "10px 10px 10px 1px rgba(0, 0, 0, 0.5)";
+        case "Dashboard":
+          return "5px 5px 5px 1px rgba(0, 0, 0, 0.5)";
         default:
           return "none";
       }

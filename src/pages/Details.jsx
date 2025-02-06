@@ -6,15 +6,14 @@ import { addPokemon, removePokemon } from "../redux/slices/LineupSlice";
 
 const Details = () => {
   const navigate = useNavigate();
-  const param = useParams();
-
   const dispatch = useDispatch();
+
+  const param = useParams();
   const Lineup = useSelector((state) => state.Lineup);
-
-  console.log(Lineup);
-
   const pokemon = setPokemon(param.id);
-  let action = Lineup.some((poke) => poke.id === pokemon.id) ? "REMOVE" : "ADD";
+  const action = Lineup.some((poke) => poke.id === pokemon.id)
+    ? "REMOVE"
+    : "ADD";
 
   const clickAction = (e) => {
     e.stopPropagation();
