@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { setPosition } from "../redux/slices/positionSlice";
 import { addPokemon, removePokemon } from "../redux/slices/LineupSlice";
 
-const PokemonCard = ({ pokemon = null, action = null, type = null }) => {
+const PokemonCard = ({ pokemon, action = null, type = null }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -30,17 +30,15 @@ const PokemonCard = ({ pokemon = null, action = null, type = null }) => {
   };
 
   return (
-    pokemon && (
-      <CardBox onClick={gotoDetails} data-pokemon-id={pokemon.id} type={type}>
-        <Img src={pokemon.img_url} alt="Pokemon" />
-        <Info>
-          NO.{pokemon.id.toString().padStart(3, "0")}
-          <br />
-          {pokemon.korean_name}
-        </Info>
-        {<ActionBtn onClick={clickAction}>{BtnName[action]}</ActionBtn>}
-      </CardBox>
-    )
+    <CardBox onClick={gotoDetails} data-pokemon-id={pokemon.id} type={type}>
+      <Img src={pokemon.img_url} alt="Pokemon" />
+      <Info>
+        NO.{pokemon.id.toString().padStart(3, "0")}
+        <br />
+        {pokemon.korean_name}
+      </Info>
+      {<ActionBtn onClick={clickAction}>{BtnName[action]}</ActionBtn>}
+    </CardBox>
   );
 };
 
@@ -113,6 +111,8 @@ const CardBox = styled.div`
         return "none";
     }
   }};
+
+  background-color: white;
 `;
 const Img = styled.img`
   object-position: center;
