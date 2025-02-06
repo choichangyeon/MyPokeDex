@@ -11,14 +11,12 @@ const Details = () => {
   const param = useParams();
   // const { Lineup, addPokemon, removePokemon } = useContext(PokemonContext);
   const dispatch = useDispatch();
-  const LineupState = useSelector((state) => state.Lineup);
+  const Lineup = useSelector((state) => state.Lineup);
 
-  console.log(LineupState);
+  console.log(Lineup);
 
   const pokemon = setPokemon(param.id);
-  let action = LineupState.Lineup?.some((poke) => poke.id === pokemon.id)
-    ? "REMOVE"
-    : "ADD";
+  let action = Lineup.some((poke) => poke.id === pokemon.id) ? "REMOVE" : "ADD";
 
   const clickAction = (e) => {
     e.stopPropagation();

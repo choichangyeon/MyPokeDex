@@ -1,11 +1,10 @@
 import styled from "styled-components";
 import pokemon_ball from "/src/assets/PokemonBall.png";
 import PokemonCard from "./PokemonCard";
-import { useContext } from "react";
-import { PokemonContext } from "../PokemonContextProvider";
+import { useSelector } from "react-redux";
 
 const Dashboard = () => {
-  const { Lineup } = useContext(PokemonContext);
+  const Lineup = useSelector((state) => state.Lineup);
   return (
     <DashboardLayout>
       <LineupTitle>나만의 포켓몬 파티</LineupTitle>
