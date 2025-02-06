@@ -1,8 +1,8 @@
 import { useNavigate, useParams } from "react-router-dom";
 import MOCK_DATA from "../constants/MOCK_DATA";
 import styled from "styled-components";
-import { useContext, useReducer } from "react";
-import { PokemonContext } from "../PokemonContextProvider";
+// import { useContext, useReducer } from "react";
+// import { PokemonContext } from "../PokemonContextProvider";
 import { useDispatch, useSelector } from "react-redux";
 import { addPokemon, removePokemon } from "../redux/slices/LineupSlice";
 
@@ -27,7 +27,7 @@ const Details = () => {
         return;
       case "REMOVE":
         // removePokemon(pokemon);
-        dispatch(removePokemon(pokemon));
+        dispatch(removePokemon(pokemon.id));
         return;
       default:
         return;

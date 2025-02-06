@@ -17,12 +17,13 @@ const PokemonCard = ({ pokemon = null, action = null, type = null }) => {
 
   const clickAction = (e) => {
     e.stopPropagation();
+    console.log(action);
     switch (action) {
       case "ADD":
         dispatch(addPokemon(pokemon));
         return;
       case "REMOVE":
-        dispatch(removePokemon(pokemon));
+        dispatch(removePokemon(pokemon.id));
         return;
       default:
         return;

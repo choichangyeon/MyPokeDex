@@ -21,8 +21,9 @@ const LineupSlice = createSlice({
     },
 
     removePokemon: (state, action) => {
-      const pokemon = action.payload;
-      state = state.filter((poke) => poke.id !== pokemon.id);
+      console.log(action);
+      const PokemonId = action.payload;
+      return state.filter((pokemon) => pokemon.id !== PokemonId);
     },
   },
 });
