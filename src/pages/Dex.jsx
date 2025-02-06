@@ -1,12 +1,11 @@
 import PokemonList from "../components/PokemonList";
 import Dashboard from "../components/Dashboard";
 import styled from "styled-components";
-import { useContext, useEffect } from "react";
-import { PokemonContext } from "../PokemonContextProvider";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 const Dex = () => {
-  const { position } = useContext(PokemonContext);
-
+  const position = useSelector((state) => state.position);
   useEffect(() => {
     window.scrollTo(0, position);
   }, [position]);

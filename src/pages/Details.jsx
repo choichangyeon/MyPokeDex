@@ -1,13 +1,17 @@
 import { useNavigate, useParams } from "react-router-dom";
 import MOCK_DATA from "../constants/MOCK_DATA";
 import styled from "styled-components";
-import { useContext } from "react";
-import { PokemonContext } from "../PokemonContextProvider";
+import { useDispatch, useSelector } from "react-redux";
+import { addPokemon, removePokemon } from "../redux/slices/LineupSlice";
 
 const Details = () => {
   const navigate = useNavigate();
   const param = useParams();
-  const { Lineup, addPokemon, removePokemon } = useContext(PokemonContext);
+
+  const dispatch = useDispatch();
+  const Lineup = useSelector((state) => state.Lineup);
+
+  console.log(Lineup);
 
   const pokemon = setPokemon(param.id);
   let action = Lineup.some((poke) => poke.id === pokemon.id) ? "REMOVE" : "ADD";
@@ -16,10 +20,10 @@ const Details = () => {
     e.stopPropagation();
     switch (action) {
       case "ADD":
-        addPokemon(pokemon);
+        dispatch(addPokemon(pokemon));
         return;
       case "REMOVE":
-        removePokemon(pokemon);
+        dispatch(removePokemon(pokemon.id));
         return;
       default:
         return;

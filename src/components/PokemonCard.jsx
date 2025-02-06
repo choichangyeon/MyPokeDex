@@ -1,26 +1,29 @@
-import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { PokemonContext } from "../PokemonContextProvider";
+import { useDispatch } from "react-redux";
+import { setPosition } from "../redux/slices/positionSlice";
+import { addPokemon, removePokemon } from "../redux/slices/LineupSlice";
 
 const PokemonCard = ({ pokemon = null, action = null, type = null }) => {
   const navigate = useNavigate();
-  const { addPokemon, removePokemon, saveScroll } = useContext(PokemonContext);
+  const dispatch = useDispatch();
 
   const gotoDetails = (e) => {
     const id = e.currentTarget.getAttribute("data-pokemon-id");
-    saveScroll();
+    const position = window.scrollY;
+    dispatch(setPosition(position));
     navigate(`/details/${id}`);
   };
 
   const clickAction = (e) => {
     e.stopPropagation();
+    console.log(action);
     switch (action) {
       case "ADD":
-        addPokemon(pokemon);
+        dispatch(addPokemon(pokemon));
         return;
       case "REMOVE":
-        removePokemon(pokemon);
+        dispatch(removePokemon(pokemon.id));
         return;
       default:
         return;
