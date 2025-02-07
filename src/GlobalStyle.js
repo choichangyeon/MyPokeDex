@@ -1,4 +1,3 @@
-// GlobalStyle.js
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
@@ -9,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
     font-style: normal;
   }
 
-  body {
+  body,button {
     font-family: "PokemonDPPT", sans-serif;
   }
 `;
