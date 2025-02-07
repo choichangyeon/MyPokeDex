@@ -18,13 +18,17 @@ const LineupSlice = createSlice({
         return;
       }
 
-      toast.success(`${Pokemon.korean_name}을 파티에 추가했습니다!`);
+      toast.success(`${Pokemon.korean_name}을(를) 파티에 추가했습니다!`, {
+        icon: <img src={Pokemon.img_url} width="35px" />,
+      });
       state.push(Pokemon);
     },
 
     removePokemon: (state, action) => {
       const Pokemon = action.payload;
-      toast.error(`${Pokemon.korean_name}을 파티에서 삭제했습니다!`);
+      toast.error(`${Pokemon.korean_name}을(를) 파티에서 삭제했습니다!`, {
+        icon: <img src={Pokemon.img_url} width="35px" />,
+      });
       return state.filter((pokemon) => pokemon.id !== Pokemon.id);
     },
   },
