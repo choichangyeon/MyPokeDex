@@ -11,9 +11,12 @@ const Details = () => {
   const param = useParams();
   const Lineup = useSelector((state) => state.Lineup);
   const pokemon = setPokemon(param.id);
+  const types = pokemon.types;
   const action = Lineup.some((poke) => poke.id === pokemon.id)
     ? "REMOVE"
     : "ADD";
+
+  console.log(types);
 
   const clickAction = (e) => {
     e.stopPropagation();
@@ -35,6 +38,11 @@ const Details = () => {
 
   return (
     <DetailsLayout>
+      <TypesLayout>
+        {types.map((type, idx) => (
+          <Type key={idx} src={matchingFiles(type)}></Type>
+        ))}
+      </TypesLayout>
       <Img src={pokemon.img_url} alt="Pokemon" />
       <Info>
         NO.{pokemon.id.toString().padStart(3, "0")}
@@ -55,10 +63,31 @@ const setPokemon = (id) => {
   return MOCK_DATA.find((pokemon) => pokemon.id === Number(id));
 };
 
+const matchingFiles = (type) => {
+  const value = Object.keys(svgModules).find((key) => {
+    const fileName = key.split("/").pop().split(".")[0];
+    return fileName === type;
+  });
+  return value;
+};
+
+const svgModules = import.meta.glob("/src/assets/Details/*.svg", {
+  eager: true,
+});
+
 const BtnName = {
   ADD: "추가하기",
   REMOVE: "삭제하기",
 };
+
+const TypesLayout = styled.div`
+  display: flex;
+  gap: 10px;
+`;
+
+const Type = styled.img`
+  width: 60px;
+`;
 
 const DetailsLayout = styled.div`
   display: flex;
