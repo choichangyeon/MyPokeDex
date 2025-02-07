@@ -32,7 +32,7 @@ const PokemonCard = ({ pokemon, action = null, type = null }) => {
   return (
     <CardBox onClick={gotoDetails} data-pokemon-id={pokemon.id} type={type}>
       <Img src={pokemon.img_url} alt="Pokemon" />
-      <Info>
+      <Info type={type}>
         NO.{pokemon.id.toString().padStart(3, "0")}
         <br />
         {pokemon.korean_name}
@@ -63,6 +63,27 @@ const CardBox = styled.div`
   justify-content: center;
   align-items: center;
 
+  ${(props) => {
+    switch (props.type) {
+      case "PokemonList":
+        return css`
+          width: 160px;
+          height: 220px;
+          margin: 20px 10px 20px 10px;
+        `;
+      case "Dashboard":
+        return css`
+          width: 140px;
+          height: 180px;
+        `;
+      default:
+        return css`
+          width: 100px;
+          height: 100px;
+        `;
+    }
+  }};
+
   &:hover {
     ${(props) => {
       switch (props.type) {
@@ -83,39 +104,8 @@ const CardBox = styled.div`
     transition: 0.5s;
   }
 
-  width: ${(props) => {
-    switch (props.type) {
-      case "PokemonList":
-        return "160px";
-      case "Dashboard":
-        return "140px";
-      default:
-        return "100px";
-    }
-  }};
-  height: ${(props) => {
-    switch (props.type) {
-      case "PokemonList":
-        return "220px";
-      case "Dashboard":
-        return "180px";
-      default:
-        return "100px";
-    }
-  }};
   border: 1px solid black;
   border-radius: 10px;
-  margin: ${(props) => {
-    switch (props.type) {
-      case "PokemonList":
-        return "20px 10px 20px 10px";
-      case "Dashboard":
-        return "none";
-      default:
-        return "none";
-    }
-  }};
-
   background-color: white;
 `;
 const Img = styled.img`
@@ -125,6 +115,16 @@ const Img = styled.img`
 const Info = styled.div`
   width: 100px;
   text-align: center;
+  font-size: ${(props) => {
+    switch (props.type) {
+      case "PokemonList":
+        return `18px`;
+      case "Dashboard":
+        return `16px`;
+      default:
+        return `15px`;
+    }
+  }};
 `;
 const ActionBtn = styled.button`
   width: 80px;
@@ -134,10 +134,12 @@ const ActionBtn = styled.button`
   border-radius: 10px;
   margin: 5px 0 0 0;
   background-color: #ee3f35;
+  color: white;
+
+  font-size: 15px;
 
   &:hover {
     background-color: #3db128;
-    color: white;
     transition: 0.3s;
   }
 `;

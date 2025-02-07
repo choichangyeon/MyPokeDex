@@ -16,8 +16,6 @@ const Details = () => {
     ? "REMOVE"
     : "ADD";
 
-  console.log(types);
-
   const clickAction = (e) => {
     e.stopPropagation();
     switch (action) {
@@ -127,12 +125,12 @@ const ActionBtn = styled.button`
   border-radius: 10px;
   margin: 5px 0 0 0;
   background-color: #ee3f35;
+  color: white;
 
   &:hover {
     transform: scale(1.15);
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
     background-color: #3db128;
-    color: white;
     transition: 0.3s;
   }
 `;
