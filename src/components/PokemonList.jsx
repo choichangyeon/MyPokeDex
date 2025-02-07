@@ -1,6 +1,6 @@
-import PokemonCard from "./PokemonCard";
-import MOCK_DATA from "../constants/MOCK_DATA";
 import styled from "styled-components";
+import MOCK_DATA from "@constants/MOCK_DATA";
+import PokemonCard from "@components/PokemonCard";
 
 const PokemonList = () => {
   const pokemonList = MOCK_DATA;

@@ -1,8 +1,8 @@
-import PokemonList from "../components/PokemonList";
-import Dashboard from "../components/Dashboard";
-import styled from "styled-components";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
+import styled from "styled-components";
+import PokemonList from "@components/PokemonList";
+import Dashboard from "@components/Dashboard";
 
 const Dex = () => {
   const position = useSelector((state) => state.position);
