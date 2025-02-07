@@ -58,8 +58,7 @@ const CardBox = styled.div`
     transform: ${(props) => {
       switch (props.type) {
         case "PokemonList":
-          return "translateY(-20px)";
-        // return "scale(1.55)";
+          return "scale(1.4)";
         case "Dashboard":
           return "translateY(-10px)";
         default:
@@ -70,8 +69,7 @@ const CardBox = styled.div`
     box-shadow: ${(props) => {
       switch (props.type) {
         case "PokemonList":
-          return "10px 10px 10px 1px rgba(0, 0, 0, 0.5)";
-        // return " 0 6px 10px rgba(0, 0, 0, 0.5)";
+          return " 0 6px 10px rgba(0, 0, 0, 0.5)";
         case "Dashboard":
           return "5px 5px 5px 1px rgba(0, 0, 0, 0.5)";
         default:
