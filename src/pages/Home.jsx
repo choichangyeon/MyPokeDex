@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import pokemon_logo from "/src/assets/image/Home/Pokemon.png";
 import styled, { keyframes } from "styled-components";
+import pokemon_logo from "@image/Home/Pokemon.png";
 
 const Home = () => {
   const navigate = useNavigate();

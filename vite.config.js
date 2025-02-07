@@ -11,6 +11,7 @@ export default defineConfig({
       { find: "@pages", replacement: "/src/pages" },
       { find: "@reduxConfig", replacement: "/src/redux/config" },
       { find: "@slices", replacement: "/src/redux/slices" },
+      { find: "@image", replacement: "/src/assets/image" },
     ],
   },
 });
