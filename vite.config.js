@@ -8,6 +8,9 @@ export default defineConfig({
     alias: [
       { find: "@", replacement: "/src" },
       { find: "@components", replacement: "/src/components" },
+      { find: "@pages", replacement: "/src/pages" },
+      { find: "@reduxConfig", replacement: "/src/redux/config" },
+      { find: "@slices", replacement: "/src/redux/slices" },
     ],
   },
 });

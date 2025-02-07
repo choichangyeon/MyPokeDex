@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Dex from "./pages/Dex";
-import Details from "./pages/Details";
+import Home from "@pages/Home";
+import Dex from "@pages/Dex";
+import Details from "@pages/Details";
 import { ToastContainer } from "react-toastify";
 
 const Router = () => {
