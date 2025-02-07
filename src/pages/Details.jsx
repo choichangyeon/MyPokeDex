@@ -109,6 +109,7 @@ const Info = styled.div`
   margin: 0 0 20px 0;
 
   line-height: 180%;
+  font-size: 22px;
   /* background-color: green; */
 `;
 
@@ -118,14 +119,16 @@ const BtnsLayout = styled.div`
 `;
 
 const ActionBtn = styled.button`
-  width: 80px;
-  height: 30px;
+  width: 100px;
+  height: 50px;
 
   border: none;
   border-radius: 10px;
   margin: 5px 0 0 0;
   background-color: #ee3f35;
   color: white;
+
+  font-size: 20px;
 
   &:hover {
     transform: scale(1.15);
@@ -136,14 +139,16 @@ const ActionBtn = styled.button`
 `;
 
 const PokemonBackBtn = styled.button`
-  width: 80px;
-  height: 30px;
+  width: 100px;
+  height: 50px;
 
   border: none;
   border-radius: 10px;
   margin: 5px 0 0 0;
   background-color: black;
   color: white;
+
+  font-size: 20px;
 
   &:hover {
     transform: scale(1.15);
