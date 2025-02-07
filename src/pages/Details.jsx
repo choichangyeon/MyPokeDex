@@ -23,7 +23,7 @@ const Details = () => {
         dispatch(addPokemon(pokemon));
         return;
       case "REMOVE":
-        dispatch(removePokemon(pokemon.id));
+        dispatch(removePokemon(pokemon));
         return;
       default:
         return;

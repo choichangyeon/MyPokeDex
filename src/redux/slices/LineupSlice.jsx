@@ -8,24 +8,24 @@ const LineupSlice = createSlice({
   initialState,
   reducers: {
     addPokemon: (state, action) => {
-      const pokemon = action.payload;
+      const Pokemon = action.payload;
       if (state.length === 6) {
         toast("라인업이 이미 완성되어있습니다!");
         return;
       }
-      if (state.find((poke) => poke.id === pokemon.id)) {
-        // alert();
+      if (state.find((pokemon) => pokemon.id === Pokemon.id)) {
         toast.warn("라인업에 존재하는 포켓몬입니다.");
         return;
       }
-      // alert();
-      toast.success(`${pokemon.korean_name}을 라인업에 추가했습니다!`);
-      state.push(pokemon);
+
+      toast.success(`${Pokemon.korean_name}을 파티에 추가했습니다!`);
+      state.push(Pokemon);
     },
 
     removePokemon: (state, action) => {
-      const PokemonId = action.payload;
-      return state.filter((pokemon) => pokemon.id !== PokemonId);
+      const Pokemon = action.payload;
+      toast.error(`${Pokemon.korean_name}을 파티에서 삭제했습니다!`);
+      return state.filter((pokemon) => pokemon.id !== Pokemon.id);
     },
   },
 });

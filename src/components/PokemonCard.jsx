@@ -22,7 +22,7 @@ const PokemonCard = ({ pokemon, action = null, type = null }) => {
         dispatch(addPokemon(pokemon));
         return;
       case "REMOVE":
-        dispatch(removePokemon(pokemon.id));
+        dispatch(removePokemon(pokemon));
         return;
       default:
         return;
