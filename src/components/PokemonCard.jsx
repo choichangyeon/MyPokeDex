@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 import { useDispatch } from "react-redux";
 import { setPosition } from "../redux/slices/positionSlice";
 import { addPokemon, removePokemon } from "../redux/slices/LineupSlice";
@@ -47,6 +47,15 @@ const BtnName = {
   REMOVE: "삭제하기",
 };
 
+const bounce = keyframes`
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+`;
+
 const CardBox = styled.div`
   cursor: pointer;
   display: flex;
@@ -55,27 +64,20 @@ const CardBox = styled.div`
   align-items: center;
 
   &:hover {
-    transform: ${(props) => {
+    ${(props) => {
       switch (props.type) {
         case "PokemonList":
-          return "translateY(-20px)";
-        // return "scale(1.55)";
+          return css`
+            transform: scale(1.4);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
+          `;
         case "Dashboard":
-          return "translateY(-10px)";
+          return css`
+            animation: ${bounce} 0.5s ease infinite;
+            box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.5);
+          `;
         default:
-          return "none";
-      }
-    }};
-
-    box-shadow: ${(props) => {
-      switch (props.type) {
-        case "PokemonList":
-          return "10px 10px 10px 1px rgba(0, 0, 0, 0.5)";
-        // return " 0 6px 10px rgba(0, 0, 0, 0.5)";
-        case "Dashboard":
-          return "5px 5px 5px 1px rgba(0, 0, 0, 0.5)";
-        default:
-          return "none";
+          return "";
       }
     }};
     transition: 0.5s;
