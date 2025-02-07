@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import pokemon_ball from "/src/assets/Dex/PokemonBall.png";
+import pokemon_ball from "/src/assets/image/Dex/PokemonBall.png";
 import PokemonCard from "./PokemonCard";
 import { useSelector } from "react-redux";
 

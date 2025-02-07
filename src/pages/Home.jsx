@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import pokemon_logo from "/src/assets/Home/Pokemon.png";
+import pokemon_logo from "/src/assets/image/Home/Pokemon.png";
 import styled, { keyframes } from "styled-components";
 
 const Home = () => {

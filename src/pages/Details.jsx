@@ -71,7 +71,7 @@ const matchingFiles = (type) => {
   return value;
 };
 
-const svgModules = import.meta.glob("/src/assets/Details/*.svg", {
+const svgModules = import.meta.glob("/src/assets/image/Details/*.svg", {
   eager: true,
 });
 
@@ -82,7 +82,8 @@ const BtnName = {
 
 const TypesLayout = styled.div`
   display: flex;
-  gap: 10px;
+  gap: 20px;
+  margin: 0 0 30px 0;
 `;
 
 const Type = styled.img`
