@@ -32,7 +32,7 @@ const PokemonCard = ({ pokemon, action = null, type = null }) => {
   return (
     <CardBox onClick={gotoDetails} data-pokemon-id={pokemon.id} type={type}>
       <Img src={pokemon.img_url} alt="Pokemon" />
-      <Info>
+      <Info type={type}>
         NO.{pokemon.id.toString().padStart(3, "0")}
         <br />
         {pokemon.korean_name}
@@ -115,6 +115,16 @@ const Img = styled.img`
 const Info = styled.div`
   width: 100px;
   text-align: center;
+  font-size: ${(props) => {
+    switch (props.type) {
+      case "PokemonList":
+        return `18px`;
+      case "Dashboard":
+        return `16px`;
+      default:
+        return `15px`;
+    }
+  }};
 `;
 const ActionBtn = styled.button`
   width: 80px;
@@ -125,6 +135,8 @@ const ActionBtn = styled.button`
   margin: 5px 0 0 0;
   background-color: #ee3f35;
   color: white;
+
+  font-size: 15px;
 
   &:hover {
     background-color: #3db128;
