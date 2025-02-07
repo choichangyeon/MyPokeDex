@@ -63,6 +63,27 @@ const CardBox = styled.div`
   justify-content: center;
   align-items: center;
 
+  ${(props) => {
+    switch (props.type) {
+      case "PokemonList":
+        return css`
+          width: 160px;
+          height: 220px;
+          margin: 20px 10px 20px 10px;
+        `;
+      case "Dashboard":
+        return css`
+          width: 140px;
+          height: 180px;
+        `;
+      default:
+        return css`
+          width: 100px;
+          height: 100px;
+        `;
+    }
+  }};
+
   &:hover {
     ${(props) => {
       switch (props.type) {
@@ -83,39 +104,8 @@ const CardBox = styled.div`
     transition: 0.5s;
   }
 
-  width: ${(props) => {
-    switch (props.type) {
-      case "PokemonList":
-        return "160px";
-      case "Dashboard":
-        return "140px";
-      default:
-        return "100px";
-    }
-  }};
-  height: ${(props) => {
-    switch (props.type) {
-      case "PokemonList":
-        return "220px";
-      case "Dashboard":
-        return "180px";
-      default:
-        return "100px";
-    }
-  }};
   border: 1px solid black;
   border-radius: 10px;
-  margin: ${(props) => {
-    switch (props.type) {
-      case "PokemonList":
-        return "20px 10px 20px 10px";
-      case "Dashboard":
-        return "none";
-      default:
-        return "none";
-    }
-  }};
-
   background-color: white;
 `;
 const Img = styled.img`
@@ -134,10 +124,10 @@ const ActionBtn = styled.button`
   border-radius: 10px;
   margin: 5px 0 0 0;
   background-color: #ee3f35;
+  color: white;
 
   &:hover {
     background-color: #3db128;
-    color: white;
     transition: 0.3s;
   }
 `;
