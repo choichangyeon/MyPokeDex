@@ -43,8 +43,10 @@ const Details = () => {
         <br />
         {pokemon.description}
       </Info>
-      <button onClick={backDex}>뒤로 가기</button>
-      <ActionBtn onClick={clickAction}>{BtnName[action]}</ActionBtn>
+      <BtnsLayout>
+        <ActionBtn onClick={clickAction}>{BtnName[action]}</ActionBtn>
+        <PokemonBackBtn onClick={backDex}>뒤로 가기</PokemonBackBtn>
+      </BtnsLayout>
     </DetailsLayout>
   );
 };
@@ -82,6 +84,11 @@ const Info = styled.div`
   /* background-color: green; */
 `;
 
+const BtnsLayout = styled.div`
+  display: flex;
+  gap: 50px;
+`;
+
 const ActionBtn = styled.button`
   width: 80px;
   height: 30px;
@@ -92,8 +99,28 @@ const ActionBtn = styled.button`
   background-color: #ee3f35;
 
   &:hover {
+    transform: scale(1.15);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
     background-color: #3db128;
     color: white;
+    transition: 0.3s;
+  }
+`;
+
+const PokemonBackBtn = styled.button`
+  width: 80px;
+  height: 30px;
+
+  border: none;
+  border-radius: 10px;
+  margin: 5px 0 0 0;
+  background-color: black;
+  color: white;
+
+  &:hover {
+    transform: scale(1.15);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
+    background-color: #306cb4;
     transition: 0.3s;
   }
 `;
