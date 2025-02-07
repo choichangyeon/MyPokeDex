@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import styled, { keyframes, css } from "styled-components";
-import { setPosition } from "@slices/positionSlice";
+import { setPosition } from "@slices/PositionSlice";
 import { addPokemon, removePokemon } from "@slices/LineupSlice";
 
 const PokemonCard = ({ pokemon, action = null, type = null }) => {
