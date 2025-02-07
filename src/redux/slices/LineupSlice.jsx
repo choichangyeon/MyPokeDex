@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 
 const initialState = [];
 
@@ -9,14 +10,16 @@ const LineupSlice = createSlice({
     addPokemon: (state, action) => {
       const pokemon = action.payload;
       if (state.length === 6) {
-        alert("라인업이 이미 완성되어있습니다!");
+        toast("라인업이 이미 완성되어있습니다!");
         return;
       }
       if (state.find((poke) => poke.id === pokemon.id)) {
-        alert("라인업에 존재하는 포켓몬입니다.");
+        // alert();
+        toast.warn("라인업에 존재하는 포켓몬입니다.");
         return;
       }
-      alert(`${pokemon.korean_name}을 라인업에 추가했습니다!`);
+      // alert();
+      toast.success(`${pokemon.korean_name}을 라인업에 추가했습니다!`);
       state.push(pokemon);
     },
 
