@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import Lineup from "/src/redux/slices/LineupSlice";
-import position from "/src/redux/slices/PositionSlice";
+import Lineup from "@slices/LineupSlice";
+import position from "@slices/PositionSlice";
 
 const store = configureStore({
   reducer: { Lineup: Lineup, position: position },
