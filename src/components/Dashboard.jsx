@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import pokemon_ball from "/src/assets/image/Dex/PokemonBall.png";
-import PokemonCard from "./PokemonCard";
 import { useSelector } from "react-redux";
+import styled from "styled-components";
+import pokemon_ball from "@image/Dex/PokemonBall.png";
+import PokemonCard from "@components/PokemonCard";
 
 const Dashboard = () => {
   const Lineup = useSelector((state) => state.Lineup);

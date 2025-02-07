@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
-import MOCK_DATA from "@/constants/MOCK_DATA";
+import MOCK_DATA from "@constants/MOCK_DATA";
 import { addPokemon, removePokemon } from "@slices/LineupSlice";
 
 const Details = () => {
