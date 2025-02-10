@@ -64,7 +64,7 @@ const setPokemon = (id) => {
 const matchingFiles = (type) => {
   const value = Object.keys(svgModules).find((key) => {
     const fileName = key.split("/").pop().split(".")[0];
-    return fileName === type;
+    return fileName === TypeName[type];
   });
   return value;
 };
@@ -76,6 +76,25 @@ const svgModules = import.meta.glob("/src/assets/image/Details/*.svg", {
 const BtnName = {
   ADD: "추가하기",
   REMOVE: "삭제하기",
+};
+
+const TypeName = {
+  노말: "normal",
+  드래곤: "dragon",
+  불꽃: "fire",
+  물: "water",
+  전기: "electric",
+  풀: "grass",
+  얼음: "ice",
+  격투: "fighting",
+  독: "poison",
+  땅: "ground",
+  비행: "flying",
+  에스퍼: "psychic",
+  벌레: "bug",
+  바위: "rock",
+  고스트: "ghost",
+  강철: "steel",
 };
 
 const TypesLayout = styled.div`
