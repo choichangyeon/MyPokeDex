@@ -89,7 +89,7 @@ const CardBox = styled.div`
       switch (props.type) {
         case "PokemonList":
           return css`
-            transform: scale(1.4);
+            transform: scale(1.2);
             box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
           `;
         case "Dashboard":
@@ -104,7 +104,7 @@ const CardBox = styled.div`
     transition: 0.5s;
   }
 
-  border: 1px solid black;
+  border: 2px solid black;
   border-radius: 10px;
   background-color: white;
 `;

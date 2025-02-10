@@ -29,7 +29,7 @@ const ListBox = styled.div`
   border-radius: 5px;
   padding: 30px 0 0 0;
   background-color: #f0f0f0;
-  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.5);
 `;
 
 export default PokemonList;
