@@ -39,7 +39,7 @@ const Details = () => {
     <DetailsLayout>
       <TypesLayout>
         {types.map((type, idx) => (
-          <Type key={idx} type={type}></Type>
+          <Type key={idx} type={type} page="Details"></Type>
         ))}
       </TypesLayout>
       <Img src={pokemon.img_url} alt="Pokemon" />

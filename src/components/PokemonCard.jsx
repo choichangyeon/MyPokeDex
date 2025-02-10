@@ -36,7 +36,7 @@ const PokemonCard = ({ pokemon, action = null, type = null }) => {
     <CardBox onClick={gotoDetails} data-pokemon-id={pokemon.id} type={type}>
       <TypesLayout>
         {types.map((type, idx) => (
-          <Type key={idx} type={type}></Type>
+          <Type key={idx} type={type} page="DEX"></Type>
         ))}
       </TypesLayout>
       <Img src={pokemon.img_url} alt="Pokemon" />
@@ -56,9 +56,21 @@ const BtnName = {
 };
 
 const TypesLayout = styled.div`
-  display: flex;
+  /* display: flex;
+  position: relative;
+  opacity: 0;
+
   gap: 20px;
   margin: 0 0 30px 0;
+  &:hover {
+    opacity: 1;
+  } */
+  display: flex;
+  position: relative;
+  opacity: 0;
+  gap: 20px;
+  margin: 0 0 30px 0;
+  transition: opacity 0.5s ease;
 `;
 
 const bounce = keyframes`
@@ -99,6 +111,9 @@ const CardBox = styled.div`
   }};
 
   &:hover {
+    & ${TypesLayout} {
+      opacity: 1;
+    }
     ${(props) => {
       switch (props.type) {
         case "PokemonList":

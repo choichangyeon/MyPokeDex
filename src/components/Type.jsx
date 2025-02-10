@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-const Type = ({ type }) => {
-  return <TypeBox src={matchingFiles(type)}></TypeBox>;
+const Type = ({ type, page }) => {
+  return <TypeBox src={matchingFiles(type)} page={page} />;
 };
 
 const matchingFiles = (type) => `/image/${TypeName[type]}.svg`;
@@ -28,7 +28,22 @@ const TypeName = {
 };
 
 const TypeBox = styled.img`
-  width: 60px;
+  ${(props) => {
+    switch (props.page) {
+      case "Details":
+        return css`
+          width: 60px;
+        `;
+      case "Dex":
+        return css`
+          width: 20px;
+        `;
+      default:
+        return css`
+          width: 30px;
+        `;
+    }
+  }};
 `;
 
 export default Type;
