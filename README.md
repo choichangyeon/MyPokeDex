@@ -182,6 +182,6 @@
 
 ###
 
-#### Vite에서의 이미지 렌더링..?(추가 예정)</h4>
+#### [Vite에서의 이미지 렌더링..?](https://velog.io/@changyon99/%ED%8A%B8%EB%9F%AC%EB%B8%94%EC%8A%88%ED%8C%85-%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%A0%8C%EB%8D%94%EB%A7%81)</h4>
 
 ###
