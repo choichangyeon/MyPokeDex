@@ -63,19 +63,21 @@ const setPokemon = (id) => {
   return MOCK_DATA.find((pokemon) => pokemon.id === Number(id));
 };
 
-const matchingFiles = (type) => {
-  const value = Object.keys(svgModules).find((key) => {
-    const fileName = key.split("/").pop().split(".")[0];
-    return fileName === TypeName[type];
-  });
-  return value;
-};
+// const matchingFiles = (type) => {
+//   const value = Object.keys(svgModules).find((key) => {
+//     const fileName = key.split("/").pop().split(".")[0];
+//     return fileName === TypeName[type];
+//   });
+//   return value;
+// };
 
-const svgModules = import.meta.glob("/src/assets/image/Details/*.svg", {
-  eager: true,
-  query: "?url",
-  import: "default",
-});
+const matchingFiles = (type) => `/image/${TypeName[type]}.svg`;
+
+// const svgModules = import.meta.glob("/src/assets/image/Details/*.svg", {
+//   eager: true,
+//   query: "?url",
+//   import: "default",
+// });
 
 const BtnName = {
   ADD: "추가하기",
