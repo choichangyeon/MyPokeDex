@@ -3,10 +3,12 @@ import { useDispatch } from "react-redux";
 import styled, { keyframes, css } from "styled-components";
 import { setPosition } from "@slices/PositionSlice";
 import { addPokemon, removePokemon } from "@slices/LineupSlice";
+import Type from "@components/Type";
 
 const PokemonCard = ({ pokemon, action = null, type = null }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const types = pokemon.types;
 
   const gotoDetails = (e) => {
     const id = e.currentTarget.getAttribute("data-pokemon-id");
@@ -29,8 +31,14 @@ const PokemonCard = ({ pokemon, action = null, type = null }) => {
     }
   };
 
+  console.log(types);
   return (
     <CardBox onClick={gotoDetails} data-pokemon-id={pokemon.id} type={type}>
+      <TypesLayout>
+        {types.map((type, idx) => (
+          <Type key={idx} type={type}></Type>
+        ))}
+      </TypesLayout>
       <Img src={pokemon.img_url} alt="Pokemon" />
       <Info type={type}>
         NO.{pokemon.id.toString().padStart(3, "0")}
@@ -46,6 +54,12 @@ const BtnName = {
   ADD: "추가하기",
   REMOVE: "삭제하기",
 };
+
+const TypesLayout = styled.div`
+  display: flex;
+  gap: 20px;
+  margin: 0 0 30px 0;
+`;
 
 const bounce = keyframes`
   0%, 100% {

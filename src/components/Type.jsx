@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-const Types = ({ type }) => {
-  return <Type src={matchingFiles(type)}></Type>;
+const Type = ({ type }) => {
+  return <TypeBox src={matchingFiles(type)}></TypeBox>;
 };
 
 const matchingFiles = (type) => `/image/${TypeName[type]}.svg`;
@@ -27,7 +27,7 @@ const TypeName = {
   페어리: "fairy",
 };
 
-const Type = styled.img`
+const TypeBox = styled.img`
   width: 60px;
 `;
 

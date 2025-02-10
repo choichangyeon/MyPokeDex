@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import MOCK_DATA from "@constants/MOCK_DATA";
 import { addPokemon, removePokemon } from "@slices/LineupSlice";
-import Type from "@component/Type";
+import Type from "@components/Type";
 
 const Details = () => {
   const navigate = useNavigate();
