@@ -131,6 +131,21 @@ const CardBox = styled.div`
   background-color: white;
 `;
 
+const Info = styled.div`
+  width: 100px;
+  text-align: center;
+  font-size: ${(props) => {
+    switch (props.type) {
+      case "PokemonList":
+        return `18px`;
+      case "Dashboard":
+        return `16px`;
+      default:
+        return `15px`;
+    }
+  }};
+`;
+
 const Overlay = styled.div`
   position: absolute;
   top: 0;
@@ -165,20 +180,7 @@ const Img = styled.img`
   object-position: center;
   object-fit: cover;
 `;
-const Info = styled.div`
-  width: 100px;
-  text-align: center;
-  font-size: ${(props) => {
-    switch (props.type) {
-      case "PokemonList":
-        return `18px`;
-      case "Dashboard":
-        return `16px`;
-      default:
-        return `15px`;
-    }
-  }};
-`;
+
 const ActionBtn = styled.button`
   width: 80px;
   height: 30px;
