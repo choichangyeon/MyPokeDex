@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import MOCK_DATA from "@constants/MOCK_DATA";
 import { addPokemon, removePokemon } from "@slices/LineupSlice";
+import Type from "@component/Type";
 
 const Details = () => {
   const navigate = useNavigate();
@@ -38,7 +39,7 @@ const Details = () => {
     <DetailsLayout>
       <TypesLayout>
         {types.map((type, idx) => (
-          <Type key={idx} src={matchingFiles(type)}></Type>
+          <Type key={idx} type={type}></Type>
         ))}
       </TypesLayout>
       <Img src={pokemon.img_url} alt="Pokemon" />
@@ -61,42 +62,15 @@ const setPokemon = (id) => {
   return MOCK_DATA.find((pokemon) => pokemon.id === Number(id));
 };
 
-const matchingFiles = (type) => `/image/${TypeName[type]}.svg`;
-
 const BtnName = {
   ADD: "추가하기",
   REMOVE: "삭제하기",
-};
-
-const TypeName = {
-  노말: "normal",
-  드래곤: "dragon",
-  불꽃: "fire",
-  물: "water",
-  전기: "electric",
-  풀: "grass",
-  얼음: "ice",
-  격투: "fighting",
-  독: "poison",
-  땅: "ground",
-  비행: "flying",
-  에스퍼: "psychic",
-  벌레: "bug",
-  바위: "rock",
-  고스트: "ghost",
-  강철: "steel",
-  악: "dark",
-  페어리: "fairy",
 };
 
 const TypesLayout = styled.div`
   display: flex;
   gap: 20px;
   margin: 0 0 30px 0;
-`;
-
-const Type = styled.img`
-  width: 60px;
 `;
 
 const DetailsLayout = styled.div`
