@@ -16,6 +16,8 @@ const Details = () => {
     ? "REMOVE"
     : "ADD";
 
+  // console.log(svgModules);
+
   const clickAction = (e) => {
     e.stopPropagation();
     switch (action) {
@@ -71,6 +73,8 @@ const matchingFiles = (type) => {
 
 const svgModules = import.meta.glob("/src/assets/image/Details/*.svg", {
   eager: true,
+  query: "?url",
+  import: "default",
 });
 
 const BtnName = {
