@@ -69,7 +69,7 @@ const matchingFiles = (type) => {
   return value;
 };
 
-const svgModules = import.meta.glob("/image/Details/*.svg", {
+const svgModules = import.meta.glob("/src/assets/image/Details/*.svg", {
   eager: true,
 });
 
