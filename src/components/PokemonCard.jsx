@@ -3,10 +3,12 @@ import { useDispatch } from "react-redux";
 import styled, { keyframes, css } from "styled-components";
 import { setPosition } from "@slices/PositionSlice";
 import { addPokemon, removePokemon } from "@slices/LineupSlice";
+import Type from "@components/Type";
 
 const PokemonCard = ({ pokemon, action = null, type = null }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const types = pokemon.types;
 
   const gotoDetails = (e) => {
     const id = e.currentTarget.getAttribute("data-pokemon-id");
@@ -31,7 +33,16 @@ const PokemonCard = ({ pokemon, action = null, type = null }) => {
 
   return (
     <CardBox onClick={gotoDetails} data-pokemon-id={pokemon.id} type={type}>
-      <Img src={pokemon.img_url} alt="Pokemon" />
+      <ImageContainer>
+        <Img src={pokemon.img_url} alt="Pokemon" />
+        <Overlay>
+          <TypesLayout>
+            {types.map((type, idx) => (
+              <Type key={idx} type={type} page="DEX"></Type>
+            ))}
+          </TypesLayout>
+        </Overlay>
+      </ImageContainer>
       <Info type={type}>
         NO.{pokemon.id.toString().padStart(3, "0")}
         <br />
@@ -47,13 +58,24 @@ const BtnName = {
   REMOVE: "삭제하기",
 };
 
-const bounce = keyframes`
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+const ImageContainer = styled.div`
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+`;
+
+const TypesLayout = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-bottom: 20px;
+  transition: opacity 0.5s ease;
 `;
 
 const CardBox = styled.div`
@@ -89,7 +111,7 @@ const CardBox = styled.div`
       switch (props.type) {
         case "PokemonList":
           return css`
-            transform: scale(1.4);
+            transform: scale(1.2);
             box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
           `;
         case "Dashboard":
@@ -104,14 +126,11 @@ const CardBox = styled.div`
     transition: 0.5s;
   }
 
-  border: 1px solid black;
+  border: 2px solid black;
   border-radius: 10px;
   background-color: white;
 `;
-const Img = styled.img`
-  object-position: center;
-  object-fit: cover;
-`;
+
 const Info = styled.div`
   width: 100px;
   text-align: center;
@@ -126,6 +145,42 @@ const Info = styled.div`
     }
   }};
 `;
+
+const Overlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+
+  ${CardBox}:hover & {
+    opacity: 1;
+  }
+`;
+
+const bounce = keyframes`
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+`;
+
+const Img = styled.img`
+  display: block;
+  margin: auto;
+  object-position: center;
+  object-fit: cover;
+`;
+
 const ActionBtn = styled.button`
   width: 80px;
   height: 30px;
