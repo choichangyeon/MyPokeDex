@@ -31,15 +31,18 @@ const PokemonCard = ({ pokemon, action = null, type = null }) => {
     }
   };
 
-  console.log(types);
   return (
     <CardBox onClick={gotoDetails} data-pokemon-id={pokemon.id} type={type}>
-      <TypesLayout>
-        {types.map((type, idx) => (
-          <Type key={idx} type={type} page="DEX"></Type>
-        ))}
-      </TypesLayout>
-      <Img src={pokemon.img_url} alt="Pokemon" />
+      <ImageContainer>
+        <Img src={pokemon.img_url} alt="Pokemon" />
+        <Overlay>
+          <TypesLayout>
+            {types.map((type, idx) => (
+              <Type key={idx} type={type} page="DEX"></Type>
+            ))}
+          </TypesLayout>
+        </Overlay>
+      </ImageContainer>
       <Info type={type}>
         NO.{pokemon.id.toString().padStart(3, "0")}
         <br />
@@ -55,31 +58,24 @@ const BtnName = {
   REMOVE: "삭제하기",
 };
 
-const TypesLayout = styled.div`
-  /* display: flex;
+const ImageContainer = styled.div`
   position: relative;
-  opacity: 0;
-
-  gap: 20px;
-  margin: 0 0 30px 0;
-  &:hover {
-    opacity: 1;
-  } */
-  display: flex;
-  position: relative;
-  opacity: 0;
-  gap: 20px;
-  margin: 0 0 30px 0;
-  transition: opacity 0.5s ease;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
 `;
 
-const bounce = keyframes`
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+const TypesLayout = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-bottom: 20px;
+  transition: opacity 0.5s ease;
 `;
 
 const CardBox = styled.div`
@@ -111,9 +107,6 @@ const CardBox = styled.div`
   }};
 
   &:hover {
-    & ${TypesLayout} {
-      opacity: 1;
-    }
     ${(props) => {
       switch (props.type) {
         case "PokemonList":
@@ -137,7 +130,38 @@ const CardBox = styled.div`
   border-radius: 10px;
   background-color: white;
 `;
+
+const Overlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+
+  ${CardBox}:hover & {
+    opacity: 1;
+  }
+`;
+
+const bounce = keyframes`
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+`;
+
 const Img = styled.img`
+  display: block;
+  margin: auto;
   object-position: center;
   object-fit: cover;
 `;
