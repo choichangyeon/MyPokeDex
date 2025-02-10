@@ -101,6 +101,8 @@ const TypeName = {
   바위: "rock",
   고스트: "ghost",
   강철: "steel",
+  악: "dark",
+  페어리: "fairy",
 };
 
 const TypesLayout = styled.div`
