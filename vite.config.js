@@ -15,7 +15,5 @@ export default defineConfig({
       { find: "@image", replacement: "/src/assets/image" },
     ],
   },
-  build: {
-    assetsInlineLimit: 1024,
-  },
+  assetsInclude: ["**/*.svg"],
 });
