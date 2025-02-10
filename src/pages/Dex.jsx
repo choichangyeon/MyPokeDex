@@ -6,6 +6,7 @@ import Dashboard from "@components/Dashboard";
 
 const Dex = () => {
   const position = useSelector((state) => state.position);
+
   useEffect(() => {
     window.scrollTo(0, position);
   }, [position]);

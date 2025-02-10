@@ -16,8 +16,6 @@ const Details = () => {
     ? "REMOVE"
     : "ADD";
 
-  // console.log(svgModules);
-
   const clickAction = (e) => {
     e.stopPropagation();
     switch (action) {
