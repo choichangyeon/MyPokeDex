@@ -149,6 +149,7 @@
 │   │           └── Pokemon.png
 │   ├── components/
 │   │   ├── Dashboard.jsx
+│   │   ├── EmptyPokemon.jsx
 │   │   ├── PokemonCard.jsx
 │   │   ├── PokemonList.jsx
 │   │   └── Type.jsx
