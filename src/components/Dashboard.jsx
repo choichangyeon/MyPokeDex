@@ -1,15 +1,19 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
-
 import PokemonCard from "@components/PokemonCard";
 import EmptyPokemon from "./EmptyPokemon";
 
 const Dashboard = () => {
   const Lineup = useSelector((state) => state.Lineup);
+  const Title = useMemo(
+    () => <LineupTitle>나만의 포켓몬 파티</LineupTitle>,
+    []
+  );
+
   return (
     <DashboardLayout>
-      <LineupTitle>나만의 포켓몬 파티</LineupTitle>
+      {Title}
       <BorderBox>
         {Array.from({ length: 6 }, (_, index) => {
           return Lineup[index] ? (
