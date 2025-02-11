@@ -1,3 +1,4 @@
+import React from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import pokemon_ball from "@image/Dex/PokemonBall.png";
@@ -68,4 +69,4 @@ const PokemonBall = styled.img`
   object-position: center;
   object-fit: cover;
 `;
-export default Dashboard;
+export default React.memo(Dashboard);

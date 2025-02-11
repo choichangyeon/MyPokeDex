@@ -1,3 +1,4 @@
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import styled, { keyframes, css } from "styled-components";
@@ -199,4 +200,4 @@ const ActionBtn = styled.button`
   }
 `;
 
-export default PokemonCard;
+export default React.memo(PokemonCard);
