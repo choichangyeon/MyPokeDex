@@ -1,8 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
-import pokemon_ball from "@image/Dex/PokemonBall.png";
+
 import PokemonCard from "@components/PokemonCard";
+import EmptyPokemon from "./EmptyPokemon";
 
 const Dashboard = () => {
   const Lineup = useSelector((state) => state.Lineup);
@@ -19,9 +20,7 @@ const Dashboard = () => {
               key={index}
             />
           ) : (
-            <EmptyPokemon key={index}>
-              <PokemonBall src={pokemon_ball} />
-            </EmptyPokemon>
+            <EmptyPokemon key={index} />
           );
         })}
       </BorderBox>
@@ -53,20 +52,4 @@ const BorderBox = styled.div`
   margin-bottom: 20px;
 `;
 
-const EmptyPokemon = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 140px;
-  height: 180px;
-  border: 1px dashed black;
-  border-radius: 10px;
-`;
-
-const PokemonBall = styled.img`
-  width: 80px;
-  object-position: center;
-  object-fit: cover;
-`;
 export default React.memo(Dashboard);
