@@ -101,21 +101,17 @@
 ###
 
 ```markdown
-📦 MyPokeDex/
-├── .github/
-│   └── ISSUE_TEMPLATE/
-│       ├── bug_report.md
-│       └── feature_request.md
+📦 MyPokeDex
 ├── .gitignore
 ├── README.md
 ├── eslint.config.js
 ├── index.html
 ├── package-lock.json
 ├── package.json
-├── public/
-│   ├── fonts/
+├── 📁public
+│   ├── 📁fonts
 │   │   └── pokemon-dppt.ttf
-│   └── image/
+│   └── 📁image
 │       ├── bug.svg
 │       ├── dark.svg
 │       ├── dragon.svg
@@ -134,36 +130,33 @@
 │       ├── rock.svg
 │       ├── steel.svg
 │       └── water.svg
-├── src/
-│   ├── .DS_Store
+├── 📁src
 │   ├── App.jsx
-│   ├── GlobalStyle.js
+│   ├── main.jsx
 │   ├── Router.jsx
-│   ├── assets/
-│   │   ├── .DS_Store
-│   │   └── image/
-│   │       ├── .DS_Store
-│   │       ├── Dex/
+│   ├── GlobalStyle.js
+│   ├── 📁assets
+│   │   └── 📁image
+│   │       ├── 📁Dex
 │   │       │   └── PokemonBall.png
-│   │       └── Home/
+│   │       └── 📁Home
 │   │           └── Pokemon.png
-│   ├── components/
+│   ├── 📁components
 │   │   ├── Dashboard.jsx
 │   │   ├── EmptyPokemon.jsx
 │   │   ├── PokemonCard.jsx
 │   │   ├── PokemonList.jsx
 │   │   └── Type.jsx
-│   ├── constants/
+│   ├── 📁constants
 │   │   └── MOCK_DATA.js
-│   ├── main.jsx
-│   ├── pages/
+│   ├── 📁pages
 │   │   ├── Details.jsx
 │   │   ├── Dex.jsx
 │   │   └── Home.jsx
-│   └── redux/
-│       ├── config/
+│   └── 📁redux
+│       ├── 📁config
 │       │   └── configStore.jsx
-│       └── slices/
+│       └── 📁slices
 │           ├── LineupSlice.jsx
 │           └── PositionSlice.jsx
 ├── vite.config.js
@@ -186,3 +179,10 @@
 #### [Vite에서의 이미지 렌더링..?](https://velog.io/@changyon99/%ED%8A%B8%EB%9F%AC%EB%B8%94%EC%8A%88%ED%8C%85-%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%A0%8C%EB%8D%94%EB%A7%81)</h4>
 
 ###
+
+<h2 align="left">🤔 회고록</h2>
+
+###
+
+#### [회고록...(수정중)](https://velog.io/@changyon99/%ED%9A%8C%EA%B3%A0%EB%A1%9D-MyPokeDex)</h4>
+
